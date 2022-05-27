@@ -36,3 +36,22 @@ function scrollHeader(){
     if(this.scrollY >= 50) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
 }
 window.addEventListener('scroll', scrollHeader)
+
+let swiperPopular = new Swiper(".popular__container", {
+        loop: true,
+        spaceBetween: 24,
+        slidesPreview: 'auto', 
+        grabCursor: true,
+        pagination: {
+          el: ".swiper-pagination",
+          dynamicBullets: true,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            spaceBetween: 58,
+          },
+        },
+    });
