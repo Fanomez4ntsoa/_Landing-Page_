@@ -38,23 +38,23 @@ function scrollHeader(){
 window.addEventListener('scroll', scrollHeader)
 
 let swiperPopular = new Swiper(".popular__container", {
-        loop: true,
-        spaceBetween: 24,
-        slidesPreview: 'auto', 
-        grabCursor: true,
-        pagination: {
-          el: ".swiper-pagination",
-          dynamicBullets: true,
-        },
-        breakpoints: {
-          768: {
-            slidesPerView: 3,
-          },
-          1024: {
-            spaceBetween: 58,
-          },
-        },
-    });
+    loop: true,
+    spaceBetween: 24,
+    slidesPreview: 'auto', 
+    grabCursor: true,
+    pagination: {
+      el: ".swiper-pagination",
+      dynamicBullets: true,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+      },
+      1024: {
+        spaceBetween: 48,
+      },
+    },
+});
 
 /*=============== MIXITUP FILTER FEATURED ===============*/
 let mixerFeatured = mixitup('.featured__content', {
@@ -73,3 +73,32 @@ function activeFeatured () {
     this.classList.add('active-featured')
 }
 linkFeatured.forEach(l=>l.addEventListener('click', activeFeatured))
+
+/* Show Scroll up */
+function scrollUp(){
+    const scrollUp = document.getElementById('scroll-up');
+    // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scroll-top class
+    if(this.scrollY >= 350) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
+
+
+/* scroll sections active link */
+const sections = document.querySelectorAll('section[id]')
+
+function scrollActive(){
+    const scrollY = window.pageYOffset
+
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight,
+              sectionTop = current.offsetTop - 58,
+              sectionId = current.getAttribute('id')
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+        }else{
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+        }
+    })
+}
+window.addEventListener('scroll', scrollActive)
