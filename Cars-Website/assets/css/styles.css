@@ -310,8 +310,8 @@ img {
 	top: -4rem;
 }
 .home .shape__small {
-	right: -10rem;
-	bottom: 3rem;
+	right: 1rem;
+	bottom: 1rem;
 }
 
 /* Button animate */
@@ -377,11 +377,14 @@ img {
 
 /* ========= POPULAR ========= */
 .popular__container {
+	grid-template-columns: repeat(2, 228px);
+	row-gap: 2.5rem;
+	justify-content: center;
 	padding-top: 1rem;
 }
 .popular__card {
 	position: relative;
-	width: 238px;
+	width: 230px;
 	background-color: var(--container-color);
 	padding: 2rem 1.5rem 1.5rem;
 	border-radius: 1rem;
@@ -786,10 +789,68 @@ img {
 		margin-left: 1rem;
 		margin-right: 1rem;
 	}
+	.home__img {
+		width: 220px;
+	}
 	.home__car {
 		column-gap: 2rem;
 	}
 	.about__card {
 		width: 150px;
 	}
+	.offer__container {
+		grid-template-columns: max-content 180px;
+	}
+	.offer__img {
+		width: 340px;
+	}
+	.logos__container {
+		gap: 2.5rem;
+	}
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+	.featured__card .shape__smaller {
+		filter: blur(75px);
+	}
+	.about__img {
+		width: 380px;
+	}
+	.about__group {
+		width: 350px;
+		justify-self: center;
+	}
+	.about__data {
+		margin-right: 2rem;
+		margin-left: 2rem;
+	}
+	.features__map {
+		left: 0;
+		right: 0;
+	}
+	.featured__item {
+		width: 60px;
+		height: 60px;
+	}
+	.featured__item img {
+		width: 2.5rem;
+	}
+	.featured__filters {
+		column-gap: 2.5rem;
+	}
+	.featured__content {
+		grid-template-columns: repeat(2, 228px);
+	}
+	.offer__container {
+		grid-template-rows: initial;
+		grid-template-columns: .5fr;
+		justify-content: center;
+	}
+	.offer__img {
+		position: relative;
+		bottom: initial;
+		right: initial;
+	}
+
 }
